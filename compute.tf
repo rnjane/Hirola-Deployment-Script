@@ -24,7 +24,8 @@ resource "google_compute_instance" "hirola-instance" {
   metadata_startup_script = "${file("deploy_hirola.sh")}"
 
   metadata {
-    ipAddress = "${var.ip-address}"
+    ipAddress = "${var.ip-address}",
+    circleBranch = "${var.branch}"
   }
 }
 
