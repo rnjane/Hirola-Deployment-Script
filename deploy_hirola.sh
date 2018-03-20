@@ -20,10 +20,11 @@ get_var() {
 }
 
 install_and_start_repo () {
+    BRANCH="$(get_var "circleBranch")" 
     cd ~
     virtualenv --python=python3 hi-venv
     source ~/hi-venv/bin/activate
-    git clone -b continuous-deployment-156068297 https://github.com/JamesKirkAndSpock/Hirola
+    git clone -b ${BRANCH} https://github.com/JamesKirkAndSpock/Hirola
     pip install -r ~/Hirola/hirola/requirements.txt
     export IP_ADDRESS="$(get_var "ipAddress")"
     nohup python3 ~/Hirola/hirola/manage.py runserver 0.0.0.0:8000 &
