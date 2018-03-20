@@ -25,7 +25,8 @@ resource "google_compute_instance" "hirola-instance" {
 
   metadata {
     ipAddress = "${var.ip-address}",
-    circleBranch = "${var.branch}"
+    circleBranch = "${var.branch}",
+    host = "${var.host}"
   }
 }
 
