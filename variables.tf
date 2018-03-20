@@ -16,3 +16,5 @@ variable "env" {}
 
 variable "branch" {}
 
+variable "host" {}
+
