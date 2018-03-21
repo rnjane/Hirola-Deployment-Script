@@ -4,7 +4,7 @@ resource "google_compute_instance" "hirola-instance" {
   project      = "${var.project}"
   zone         = "${var.zone}"
   name         = "${var.env}-hirola"
-  machine_type = "g1-small"
+  machine_type = "f1-micro"
   tags         = ["hirola"]
 
   boot_disk {
