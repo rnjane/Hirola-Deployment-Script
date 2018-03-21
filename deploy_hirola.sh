@@ -21,7 +21,7 @@ install_and_start_repo () {
     pip install -r ~/Hirola/hirola/requirements.txt
     export IP_ADDRESS="$(get_var "ipAddress")"
     export HOST="$(get_var "host")"
-    nohup python3 ~/Hirola/hirola/manage.py runserver 0.0.0.0:8000 &
+    nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
 
 main () {
