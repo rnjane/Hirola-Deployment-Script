@@ -5,13 +5,6 @@ set -o pipefail
 # set -o nounset
 # set -o xtrace
 
-install_dependencies () {
-    sudo apt-get -y upgrade
-    sudo apt-get -y update
-    sudo apt-get install -y python3-pip
-    sudo apt-get install -y python-virtualenv
-}
-
 get_var() {
   local name="$1"
 
@@ -32,7 +25,6 @@ install_and_start_repo () {
 }
 
 main () {
-    install_dependencies
     install_and_start_repo
 }
 
