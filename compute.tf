@@ -28,6 +28,11 @@ resource "google_compute_instance" "hirola-instance" {
     circleBranch = "${var.branch}",
     host = "${var.host}"
   }
+
+  service_account {
+    scopes = ["storage-ro"]
+  }
+  
 }
 
 
