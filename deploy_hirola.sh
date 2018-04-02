@@ -24,26 +24,8 @@ install_and_start_repo () {
     nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
 
-
-add_telegram_file() {
-    gsutil cp gs://compute-engine-overview-186809/hirola/telegram.sh ~/
-}
-
-add_cron_job_to_crontab() {
-  cat > cron_example <<'EOF'
-0 21 * * 1-5 bash ~/telegram.sh
-EOF
-
-cat cron_example | crontab
-
-rm -rf cron_example
-}
-
-
 main () {
     install_and_start_repo
-    add_telegram_file
-    add_cron_job_to_crontab
 }
 
 main "$@"
