@@ -31,7 +31,7 @@ add_telegram_file() {
 
 add_cron_job_to_crontab() {
   cat > cron_example <<'EOF'
-0 21 * * 1-5 bash ~/telegram.sh
+0 18 * * 1-6 bash ~/telegram.sh
 EOF
 
 cat cron_example | crontab
