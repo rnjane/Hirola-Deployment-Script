@@ -27,11 +27,13 @@ install_and_start_repo () {
 
 add_telegram_file() {
     gsutil cp gs://compute-engine-overview-186809/hirola/telegram.sh ~/
+    gsutil cp gs://compute-engine-overview-186809/hirola/review.sh ~/
 }
 
 add_cron_job_to_crontab() {
   cat > cron_example <<'EOF'
 0 18 * * 1-6 bash ~/telegram.sh
+0 15 * * 5 bash ~/review.sh
 EOF
 
 cat cron_example | crontab
