@@ -27,6 +27,7 @@ resource "google_compute_instance" "hirola-instance" {
     ipAddress = "${var.ip-address}",
     circleBranch = "${var.branch}",
     host = "${var.host}"
+    env = "${var.env}"
   }
 
   service_account {
