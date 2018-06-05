@@ -38,6 +38,6 @@ resource "google_compute_instance" "hirola-instance" {
   }
 
   service_account {
-    scopes = ["storage-ro"]
+    scopes = ["storage-full"]
   }
 }
