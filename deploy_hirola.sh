@@ -19,8 +19,20 @@ install_and_start_repo () {
     source ~/hi-venv/bin/activate
     git clone -b ${BRANCH} https://github.com/JamesKirkAndSpock/Hirola
     pip install -r ~/Hirola/hirola/requirements.txt
+    ENVIRONMENT="$(get_var "environment")"
     export IP_ADDRESS="$(get_var "ipAddress")"
     export HOST="$(get_var "host")"
+    export DATABASE_NAME="$(get_var "databaseName")"
+    export USER="$(get_var "user")"
+    export PASSWORD="$(get_var "password")"
+    export DJANGO_SETTINGS_MODULE=hirola.settings.${ENVIRONMENT}
+    export POSTGRES_IP="$(get_var "postgresIp")"
+    export SECRET_KEY="$(sudo openssl rand -hex 64)"
+    export GS_BUCKET_NAME="$(get_var "gsBucketName")"
+    export GS_BUCKET_URL="$(get_var "gsBucketURL")"
+    python3 ~/Hirola/hirola/manage.py makemigrations front
+    python3 ~/Hirola/hirola/manage.py migrate
+#     echo "from django.contrib.auth.models import User; User.objects.create_superuser('user', 'user@example.com', 'password')" | python3 ~/Hirola/hirola/manage.py shell
     nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
 
