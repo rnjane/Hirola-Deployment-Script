@@ -32,7 +32,7 @@ install_and_start_repo () {
     export GS_BUCKET_URL="$(get_var "gsBucketURL")"
     python3 ~/Hirola/hirola/manage.py makemigrations front
     python3 ~/Hirola/hirola/manage.py migrate
-#     echo "from django.contrib.auth.models import User; User.objects.create_superuser('user', 'user@example.com', 'password')" | python3 ~/Hirola/hirola/manage.py shell
+    echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'hirola77')" | python3 ~/Hirola/hirola/manage.py shell
     nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
 
