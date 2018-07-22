@@ -35,9 +35,11 @@ resource "google_compute_instance" "hirola-instance" {
     postgresIp   = "${var.postgres_ip}"
     gsBucketName = "${var.gs_bucket_name}"
     gsBucketURL  = "${var.gs_bucket_url}"
+    cacheIP      = "${var.cache_ip}"
+    cachePort    = "${var.cache_port}"
   }
 
   service_account {
-    scopes = ["storage-ro"]
+    scopes = ["storage-full"]
   }
 }

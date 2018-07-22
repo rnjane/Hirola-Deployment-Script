@@ -31,3 +31,7 @@ variable "environment" {}
 variable "gs_bucket_name" {}
 
 variable "gs_bucket_url" {}
+
+variable "cache_port" {}
+
+variable "cache_ip" {}
