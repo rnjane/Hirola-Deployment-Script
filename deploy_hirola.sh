@@ -34,7 +34,7 @@ install_and_start_repo () {
     export CACHE_PORT="$(get_var "cachePort")"
     python3 ~/Hirola/hirola/manage.py makemigrations front
     python3 ~/Hirola/hirola/manage.py migrate
-    memcached -d
+    sudo systemctl start memcached
     # echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'hirola77')" | python3 ~/Hirola/hirola/manage.py shell
     nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
