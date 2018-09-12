@@ -37,6 +37,8 @@ resource "google_compute_instance" "hirola-instance" {
     gsBucketURL  = "${var.gs_bucket_url}"
     cacheIP      = "${var.cache_ip}"
     cachePort    = "${var.cache_port}"
+    twilioSID    = "${var.twilio_account_sid}"
+    twilioTOK    = "${var.twilio_auth_token}"  
   }
 
   service_account {

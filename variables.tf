@@ -35,3 +35,7 @@ variable "gs_bucket_url" {}
 variable "cache_port" {}
 
 variable "cache_ip" {}
+
+variable "twilio_account_sid" {}
+
+variable "twilio_auth_token" {}

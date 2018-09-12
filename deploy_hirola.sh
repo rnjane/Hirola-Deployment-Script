@@ -32,10 +32,12 @@ install_and_start_repo () {
     export GS_BUCKET_URL="$(get_var "gsBucketURL")"
     export CACHE_IP="$(get_var "cacheIP")"
     export CACHE_PORT="$(get_var "cachePort")"
+    export TWILIO_ACCOUNT_SID="$(get_var "twilioSID")"
+    export TWILIO_AUTH_TOKEN="$(get_var "twilioTOK")"
     python3 ~/Hirola/hirola/manage.py makemigrations front
+    python3 ~/Hirola/hirola/manage.py migrate front
     python3 ~/Hirola/hirola/manage.py migrate
     sudo systemctl start memcached
-    # echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'hirola77')" | python3 ~/Hirola/hirola/manage.py shell
     nohup python3 ~/Hirola/hirola/manage.py runserver 0:80 &
 }
 
